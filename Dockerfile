@@ -13,12 +13,13 @@ COPY backend .
 COPY ../frontend/package*.json frontend/
 WORKDIR /app/frontend
 RUN apt-get update && apt-get install -y npm
-RUN npm install
+RUN npm install -g npm@latest
+RUN npm ci
 RUN npm run build
 
 # Copy frontend build output
-COPY frontend/build /app/static
-COPY frontend/public/index.html /app/static
+COPY ../frontend/build /app
+
 
 # Expose port
 EXPOSE 7535

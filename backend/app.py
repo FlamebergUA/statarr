@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 import requests
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
 load_dotenv()
 
 PLEX_API_KEY = os.getenv("PLEX_API_KEY")
@@ -27,7 +27,7 @@ def get_libraries():
 
 @app.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory('/app', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=7535)
