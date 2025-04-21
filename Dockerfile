@@ -12,7 +12,7 @@ COPY backend .
 # Install frontend dependencies
 COPY ../frontend/package*.json frontend/
 WORKDIR /app/frontend
-RUN RUN npm ci
+RUN npm ci
 RUN npm run build
 
 # Copy frontend build output
