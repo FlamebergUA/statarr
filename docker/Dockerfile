@@ -14,12 +14,3 @@ EXPOSE 7535
 
 # Start the backend server
 CMD ["python", "app.py"]
-
-# Change working directory back to the root
-WORKDIR /app
-
-# Expose port
-EXPOSE 7535
-
-# Start the backend server
-CMD ["python", "app.py"]

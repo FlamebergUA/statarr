@@ -15,4 +15,4 @@ def get_libraries():
     return jsonify(libraries)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=7535)

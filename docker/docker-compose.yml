@@ -7,7 +7,7 @@ services:
     container_name: statarr
     image: ghcr.io/flamebergua/statarr:latest
     ports:
-      - "7535:80"  # Changed target port to 80 as nginx serves on 80 by default
+      - "7535:7535"
     volumes:
       - ./backend:/app/backend
       - ./frontend:/app/frontend
