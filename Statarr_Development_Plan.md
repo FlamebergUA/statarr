@@ -35,3 +35,41 @@ services:
 1.  Set the `PLEX_API_KEY` and `PLEX_SERVER_URL` environment variables in the "Environment variables" section.
 2.  Deploy the stack.
 3.  Access the application at `http://localhost:7535`.
+
+## Push to GitHub
+
+1.  **Initialize a Git repository:**
+    ```bash
+    git init
+    ```
+2.  **Add all the files to the repository:**
+    ```bash
+    git add .
+    ```
+3.  **Commit the changes:**
+    ```bash
+    git commit -m "Initial commit"
+    ```
+4.  **Create a GitHub repository:** (The user needs to create a repository on GitHub)
+5.  **Connect the local repository to the GitHub repository:**
+    ```bash
+    git remote add origin <repository_url> # Replace <repository_url> with the actual repository URL
+    ```
+6.  **Push the changes to GitHub:**
+    ```bash
+    git push -u origin main
+    ```
+7.  **Build the Docker image:**
+    ```bash
+    cd docker
+    docker build -t ghcr.io/flamebergua/statarr:latest .
+    cd ..
+    ```
+8.  **Log in to GitHub Container Registry:**
+    ```bash
+    docker login ghcr.io -u <github_username> # Replace <github_username> with your GitHub username
+    ```
+9.  **Push the Docker image to GitHub Container Registry:**
+    ```bash
+    docker push ghcr.io/flamebergua/statarr:latest
+    ```
