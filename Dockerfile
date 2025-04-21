@@ -2,6 +2,7 @@ FROM node:18-slim as frontend-builder
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
 COPY frontend/public ./public
+COPY frontend/src ./src
 RUN npm install
 RUN npm run build
 
