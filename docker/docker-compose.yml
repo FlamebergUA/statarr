@@ -1,0 +1,16 @@
+# App URL: https://github.com/FlamebergUA/statarr
+# App Name: Statarr
+# Container Name: statarr
+version: "3.9"
+services:
+  statarr:
+    container_name: statarr
+    image: ghcr.io/flamebergua/statarr:latest
+    ports:
+      - "7535:80"  # Changed target port to 80 as nginx serves on 80 by default
+    volumes:
+      - ./backend:/app/backend
+      - ./frontend:/app/frontend
+    environment:
+      - PLEX_API_KEY=${PLEX_API_KEY}
+      - PLEX_SERVER_URL=${PLEX_SERVER_URL}
