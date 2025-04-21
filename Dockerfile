@@ -12,6 +12,7 @@ COPY backend .
 # Install frontend dependencies
 COPY ../frontend/package*.json frontend/
 WORKDIR /app/frontend
+RUN apt-get update && apt-get install -y npm
 RUN npm install
 RUN npm run build
 
